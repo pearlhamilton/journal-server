@@ -1,0 +1,32 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start-dev": "start ../client/index.html & nodemon index.js",
+    "action-test": "jest",
+    "test": "jest --silent --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theduckfliesagain/journal-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theduckfliesagain/journal-server/issues"
+  },
+  "homepage": "https://github.com/theduckfliesagain/journal-server#readme",
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "supertest": "^6.1.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
