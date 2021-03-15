@@ -14,4 +14,17 @@ router.post('/', (req,res) => {
     res.status(201).send(newEntry);
 })
 
+router.get('/:id', (req,res) => {
+    const entryId = parseInt(req.params.id);
+    const entry = Entry.findById(entryId);
+    res.send(entry);
+})
+
+router.patch('/:id', (req,res) => {
+    const entryId = parseInt(req.params.id);
+    const entry = Entry.findById(entryId);
+    const updatedEntry = entry.update(req.body);
+    res.send(updatedEntry);
+})
+
 module.exports = router;
