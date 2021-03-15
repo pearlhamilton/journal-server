@@ -20,10 +20,17 @@ router.get('/:id', (req,res) => {
     res.send(entry);
 })
 
-router.patch('/:id', (req,res) => {
+router.patch('/:id/comments', (req,res) => {
     const entryId = parseInt(req.params.id);
     const entry = Entry.findById(entryId);
-    const updatedEntry = entry.update(req.body);
+    const updatedEntry = entry.updateComments(req.body);
+    res.send(updatedEntry);
+})
+
+router.patch('/:id/reacts', (req,res) => {
+    const entryId = parseInt(req.params.id);
+    const entry = Entry.findById(entryId);
+    const updatedEntry = entry.updateReacts(req.body);
     res.send(updatedEntry);
 })
 
