@@ -6,9 +6,14 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+const entryRoutes = require('./controllers/entries');
+app.use('/entries', entryRoutes);
+
 app.get('/', (req, res) => {
     res.send('Hello there!');
 });
+
+
 
 
 module.exports = app;

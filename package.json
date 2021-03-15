@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start-dev": "start ../client/index.html & nodemon index.js",
+    "dev": "start ../client/index.html & nodemon index.js",
     "action-test": "jest",
     "test": "jest --silent --watchAll"
   },
