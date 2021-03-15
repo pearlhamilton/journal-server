@@ -5,7 +5,7 @@ class Entry {
         this.id = data.id;
         this.message = data.message;
         this.reacts = data.reacts;
-        this.comments = data.comments;
+        this.comments = [];
     }
 
 
