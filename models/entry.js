@@ -44,7 +44,7 @@ class Entry {
     }
 
     updateReacts(data){
-        
+                
         this.reacts.map(react => react++);
     }
 }
