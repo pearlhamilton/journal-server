@@ -7,7 +7,8 @@
     "start": "node index.js",
     "dev": "start ../client/index.html & nodemon index.js",
     "action-test": "jest",
-    "test": "jest --silent --watchAll"
+    "test": "jest --silent --watchAll",
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
