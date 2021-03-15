@@ -1,4 +1,5 @@
 const entriesData = require('../data');
+const jsonHelpers = require('../json-manager');
 
 class Entry {
     constructor(data) {
@@ -19,6 +20,13 @@ class Entry {
         const newEntry = new Entry({id: newID, ...data});
         entriesData.push(newEntry);
         return newEntry;
+    }
+    static get readJSON() {
+        return jsonHelpers.readJSON();
+    }
+
+    static updateJSON(newID, newMessage, newReacts1, newReacts2, newReacts3, newComments) {
+        jsonHelpers.updateJSON(newID, newMessage, newReacts1, newReacts2, newReacts3, newComments);
     }
 }
 
