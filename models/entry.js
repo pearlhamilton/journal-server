@@ -31,20 +31,24 @@ class Entry {
         return newEntry;
     }
 
-    update(data){
+    updateComments(data){
         const entry = entriesData.filter((entry) => entry.id === this.id)[0];
         // Add new comments
-        if (data.comments > 0) {
+        if (data.comments.length > 0) {
             entry.comments.push(...data.comments)
         }
-        
-        // Add new reacts
+        return entry;
+    }
+
+    updateReacts(data){    
         for (const [react,num] of Object.entries(entry.reacts)){
             entry.reacts[react] += data.reacts[react] || 0;
         }
 
         return entry;
     }
+  
+
 
 }
 
