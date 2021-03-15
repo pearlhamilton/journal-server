@@ -20,7 +20,7 @@ class Entry {
             const entry = new Entry(entryData);
             return entry;
         } catch (err) {
-            throw new Error('Not a valid entry ID.');
+            throw new Error(`${id} is not a valid entry ID.`);
         }
     }
 
@@ -34,7 +34,10 @@ class Entry {
     update(data){
         const entry = entriesData.filter((entry) => entry.id === this.id)[0];
         // Add new comments
-        entry.comments.push(...data.comments);
+        if (data.comments > 0) {
+            entry.comments.push(...data.comments)
+        }
+        
         // Add new reacts
         for (const [react,num] of Object.entries(entry.reacts)){
             entry.reacts[react] += data.reacts[react] || 0;
@@ -43,10 +46,6 @@ class Entry {
         return entry;
     }
 
-    updateReacts(data){
-        
-        this.reacts.map(react => react++);
-    }
 }
 
 module.exports = Entry;
