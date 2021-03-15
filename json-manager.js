@@ -14,16 +14,27 @@ function readJSON() {
         databases.forEach(db => {
             const id = db.id;
             const message = db.message;
-            let reacts1 = db.reacts.reacts1;
-            let reacts2 = db.reacts.reacts2;
-            let reacts3 = db.reacts.reacts3;
+            let reacts1 = db.reacts.react1;
+            let reacts2 = db.reacts.react2;
+            let reacts3 = db.reacts.react3;
             const comments = db.comments;
             console.log(`id: ${id}\n
                          message: ${message}\n
-                         react1: ${reacts1}\n
+                         react1: ${react1}\n
                          react2: ${react2}\n
                          react3: ${react3}\n
                          comments: ${comments}`);
+            const newObject = {  
+                id: id, 
+                message: message,
+                reacts: {
+                    react1: reacts1,
+                    react2: reacts2,
+                    react3: reacts3
+                },
+                comments: comments
+            }
+            return newObject;
         });
     } catch (err) {
         console.log(`Error reading file from disk!`);
