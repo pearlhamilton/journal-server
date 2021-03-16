@@ -6,14 +6,13 @@ const filepath = './test-data.json';
 
 //Create function that synchronously reads a json file
 function readJSON() {
-    // try {
         const data = fs.readFileSync(filepath, 'utf8');
         //Parse JSON string to JSON object
         const entries = JSON.parse(data);
         return entries;
 }
 
-// //Create function that adds item to json file
+//Create function that adds item to json file
 function addToJSON(entry) {
     //Write file to disk
     fs.readFile(filepath, 'utf8', (err, data) => {
@@ -37,7 +36,5 @@ function addToJSON(entry) {
         }
     })
 }
-
-
 
 module.exports = { readJSON, addToJSON };
