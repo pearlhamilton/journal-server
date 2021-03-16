@@ -1,4 +1,6 @@
 const entriesData = require('../data');
+const jsonData = require('../test-data.json');
+const jsonHelpers = require('../json-manager');
 
 class Entry {
     constructor(data) {
@@ -10,7 +12,8 @@ class Entry {
     }
 
     static get all(){
-        const data = entriesData.map(entry => new Entry(entry));
+        // const data = entriesData.map(entry => new Entry(entry));
+        const data = jsonHelpers.readJSON();
         return data;
     }
 
@@ -25,9 +28,9 @@ class Entry {
     }
 
     static create(data){
-        const newID = entriesData.length + 1;
+        const newID = jsonData.length + 1;
         const newEntry = new Entry({id: newID, ...data});
-        entriesData.push(newEntry);
+        jsonHelpers.addToJSON(newEntry);
         return newEntry;
     }
 
