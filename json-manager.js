@@ -21,9 +21,7 @@ function addToJSON(entry) {
         } else {
             //parse JSON string into JSON object            
             const entriesData = JSON.parse(data);
-            console.log(entriesData);
             //Push new data into file
-            console.log('entry');
             entriesData.push(entry);
             //write new data back into file
             const jsonString = JSON.stringify(entriesData, null, 4)
