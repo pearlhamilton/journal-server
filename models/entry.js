@@ -1,4 +1,3 @@
-const entriesData = require('../data');
 const jsonData = require('../test-data.json');
 const jsonHelpers = require('../json-manager');
 
@@ -12,18 +11,17 @@ class Entry {
     }
 
     static get all(){
-        // const data = entriesData.map(entry => new Entry(entry));
         const data = jsonHelpers.readJSON();
         return data;
     }
 
     static findById(id) {
-        try {
-            const entryData = entriesData.filter((entry) => entry.id === id)[0];
-            const entry = new Entry(entryData);
-            return entry;
-        } catch (err) {
-            throw new Error(`${id} is not a valid entry ID.`);
+        const filteredEntry = jsonData.filter((entry) => entry.id===id)[0];
+        if(filteredEntry) {
+            console.log(`Hooray, entry ${id} already exists!`);
+            return filteredEntry;
+        } else {
+            throw new Error(`${id} is not a valid entry ID.`)
         }
     }
 
