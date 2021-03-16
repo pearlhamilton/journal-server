@@ -30,8 +30,8 @@ router.patch('/:id/comments', (req,res) => {
 router.patch('/:id/reacts', (req,res) => {
     const entryId = parseInt(req.params.id);
     const entry = Entry.findById(entryId);
-    const updatedEntry = entry.updateReacts(req.body);
-    res.send(updatedEntry);
+    const updatedReacts = entry.updateReacts(req.body);
+    res.send(updatedReacts);
 })
 
 module.exports = router;

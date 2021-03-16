@@ -41,10 +41,9 @@ class Entry {
     }
 
     updateReacts(data){    
-        for (const [react,num] of Object.entries(entry.reacts)){
-            entry.reacts[react] += data.reacts[react] || 0;
-        }
-        return entry;
+        const reactIdx = parseInt(data.reactBtn) - 1;
+        this.reacts[reactIdx] += 1;
+        return this.reacts;
     }
 
 }
