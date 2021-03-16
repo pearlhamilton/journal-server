@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Entry = require('../models/entry') // make
+const Entry = require('../models/entry')
 
 router.get('/', (req, res) => {
     const entries = Entry.all;
@@ -23,8 +23,8 @@ router.get('/:id', (req,res) => {
 router.patch('/:id/comments', (req,res) => {
     const entryId = parseInt(req.params.id);
     const entry = Entry.findById(entryId);
-    const updatedEntry = entry.updateComments(req.body);
-    res.send(updatedEntry);
+    const updatedComments = entry.updateComments(req.body);
+    res.send(updatedComments);
 })
 
 router.patch('/:id/reacts', (req,res) => {

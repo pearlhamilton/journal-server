@@ -32,17 +32,18 @@ class Entry {
     }
 
     updateComments(data){
-        const entry = entriesData.filter((entry) => entry.id === this.id)[0];
         // Add new comments
         if (data.comments.length > 0) {
-            entry.comments.push(...data.comments)
+            this.comments.push(...data.comments)
         }
-        return entry;
+        // TODO - update json
+        return this.comments;
     }
 
     updateReacts(data){    
         const reactIdx = parseInt(data.reactBtn) - 1;
         this.reacts[reactIdx] += 1;
+        // TODO - update json
         return this.reacts;
     }
 
