@@ -44,4 +44,17 @@ describe('Entry model', () => {
         const firstEntry = Entry.findById(1);
         expect(firstEntry).toEqual(entriesData[0]);
     })
+
+    test('comments section should update when a comment is made', () => {
+        //Stub!
+    })
+
+    test('it should update the number of reacts', () => {
+        const firstEntry = Entry.findById(1);
+        Entry.updateReacts(firstEntry);
+        expect(firstEntry.reacts.react1).toEqual(1);
+        expect(firstEntry.reacts.react2).toEqual(1);
+        expect(firstEntry.reacts.react3).toEqual(1);
+    })
+
 });
