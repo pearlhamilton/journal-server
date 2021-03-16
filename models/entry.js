@@ -4,7 +4,7 @@ class Entry {
     constructor(data) {
         this.id = data.id;
         this.message = data.message;
-        this.reacts = data.reacts || {"react1": 0, "react1": 1, "react1": 2};
+        this.reacts = data.reacts || [0,0,0];
         this.comments = data.comments || [];
     }
 
@@ -44,11 +44,8 @@ class Entry {
         for (const [react,num] of Object.entries(entry.reacts)){
             entry.reacts[react] += data.reacts[react] || 0;
         }
-
         return entry;
     }
-  
-
 
 }
 
