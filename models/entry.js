@@ -4,10 +4,10 @@ class Entry {
     constructor(data) {
         this.id = data.id;
         this.message = data.message;
+        this.gif = data.gif;
         this.reacts = data.reacts || [0,0,0];
         this.comments = data.comments || [];
     }
-
 
     static get all(){
         const data = entriesData.map(entry => new Entry(entry));
