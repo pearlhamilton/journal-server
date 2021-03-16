@@ -1,5 +1,4 @@
 //Import data
-const entries = require('../data');
 const entriesData = require('../data');
 //Import model
 const Entry = require('../models/entry');
@@ -40,4 +39,9 @@ describe('Entry model', () => {
         const newEntry = Entry.create(testEntry);
         expect(newEntry).toEqual({id: newEntryId, ...testEntry});
     })
-})
+
+    test('it should find an entry by ID', () => {
+        const firstEntry = Entry.findById(1);
+        expect(firstEntry).toEqual(entriesData[0]);
+    })
+});
