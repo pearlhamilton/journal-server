@@ -27,10 +27,10 @@ function addToJSON(entry) {
             const jsonString = JSON.stringify(jsonData, null, 4)
             fs.writeFile(filepath, jsonString, (err) => {
                 if (err) {
-                    console.log(`Error writing file: ${err}`);
+                    console.log(`Error writing to file: ${err}`);
                 }
             });
-            console.log("Successfully added file to JSON!");                
+            console.log(`Successfully added entry ${entry.id} to JSON file!`);                
         }
     })    
 }
