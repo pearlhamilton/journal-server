@@ -26,6 +26,21 @@ class Entry {
         }
     }
 
+    static findByKeyword(keyword) {
+        try {
+            const downcaseKeyword = keyword.toLowerCase();
+            const matchingEntries = jsonData.filter((entry) => {
+                const messageWords = entry.message.split(" ");
+                const downcasedWords = messageWords.map(word => word.toLowerCase());
+                const matchingResult = downcasedWords.some(word => word == downcaseKeyword);
+                if(matchingResult) {return entry};
+            });
+            if(matchingEntries.length>0) {return matchingEntries};
+        } catch (err) {
+            throw new Error (`None of the posts contain "${keyword}"!  Try another search`);
+        }
+    }
+
     static create(data){
         const newID = jsonData.length + 1;
         const newEntry = new Entry({id: newID, ...data});
