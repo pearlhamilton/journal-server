@@ -23,7 +23,6 @@ router.get('/:id', (req,res) => {
 router.patch('/:id/comments', (req,res) => {
     const entryId = parseInt(req.params.id);
     const entry = Entry.findById(entryId);
-    console.log(entry);
     const updatedComments = entry.updateComments(req.body);
     res.send(updatedComments);
 })
