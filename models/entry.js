@@ -4,7 +4,7 @@ class Entry {
     constructor(data) {
         this.id = data.id;
         this.message = data.message;
-        this.date = new Date();
+        this.date = new Date(data.date);
         this.gif = data.gif;
         this.reacts = data.reacts || [0,0,0];
         this.comments = data.comments || [];
@@ -19,7 +19,6 @@ class Entry {
         try {
             const entryData = entriesData.filter((entry) => entry.id === id)[0];
             const entry = new Entry(entryData);
-            log(entry);
             return entry;
         } catch (err) {
             throw new Error(`${id} is not a valid entry ID.`);
