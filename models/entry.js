@@ -5,7 +5,7 @@ class Entry {
     constructor(data) {
         this.id = data.id;
         this.message = data.message;
-        // this.gif = data.gif;
+        this.gif = data.gif;
         this.reacts = data.reacts || [0,0,0];
         this.comments = data.comments || [];
     }
@@ -19,7 +19,7 @@ class Entry {
         const filteredEntry = jsonData.filter((entry) => entry.id===id)[0];
         const selectedEntry = new Entry(filteredEntry);
         if(filteredEntry) {
-            console.log(`Hooray, entry ${id} already exists!`);            
+            console.log(`Hooray, entry ${id} exists!`);            
             return selectedEntry;
         } else {
             throw new Error(`${id} is not a valid entry ID.`)
