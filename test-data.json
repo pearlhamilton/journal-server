@@ -12,5 +12,16 @@
             "Loser",
             "Oi, that's not very nice!"
         ]
+    },
+    {
+        "id": 2,
+        "message": "here is a second post",
+        "gif": "",
+        "reacts": [
+            0,
+            0,
+            0
+        ],
+        "comments": []
     }
 ]
