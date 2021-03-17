@@ -1,4 +1,5 @@
-const entriesData = require('../data');
+const jsonData = require('../test-data.json');
+const jsonHelpers = require('../json-manager');
 
 class Entry {
     constructor(data) {
@@ -11,24 +12,25 @@ class Entry {
     }
 
     static get all(){
-        const data = entriesData.map(entry => new Entry(entry));
+        const data = jsonHelpers.readJSON();
         return data;
     }
 
     static findById(id) {
-        try {
-            const entryData = entriesData.filter((entry) => entry.id === id)[0];
-            const entry = new Entry(entryData);
-            return entry;
-        } catch (err) {
-            throw new Error(`${id} is not a valid entry ID.`);
+        const filteredEntry = jsonData.filter((entry) => entry.id===id)[0];
+        const selectedEntry = new Entry(filteredEntry);
+        if(filteredEntry) {
+            console.log(`Hooray, entry ${id} exists!`);            
+            return selectedEntry;
+        } else {
+            throw new Error(`${id} is not a valid entry ID.`)
         }
     }
 
     static create(data){
-        const newID = entriesData.length + 1;
+        const newID = jsonData.length + 1;
         const newEntry = new Entry({id: newID, ...data});
-        entriesData.push(newEntry);
+        jsonHelpers.addToJSON(newEntry);
         return newEntry;
     }
 
@@ -37,14 +39,14 @@ class Entry {
         if (data.comments.length > 0) {
             this.comments.push(...data.comments)
         }
-        // TODO - update json
+        jsonHelpers.addCommentsJSON(this);
         return this.comments;
     }
 
     updateReacts(data){    
         const reactIdx = parseInt(data.reactBtn) - 1;
         this.reacts[reactIdx] += 1;
-        // TODO - update json
+        jsonHelpers.addReactsJSON(this);
         return this.reacts;
     }
 
