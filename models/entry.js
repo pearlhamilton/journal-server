@@ -4,6 +4,7 @@ class Entry {
     constructor(data) {
         this.id = data.id;
         this.message = data.message;
+        this.date = new Date(data.date);
         this.gif = data.gif;
         this.reacts = data.reacts || [0,0,0];
         this.comments = data.comments || [];
