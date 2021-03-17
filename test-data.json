@@ -23,5 +23,16 @@
             0
         ],
         "comments": []
+    },
+    {
+        "id": 3,
+        "message": "here is a third post",
+        "gif": "",
+        "reacts": [
+            0,
+            0,
+            0
+        ],
+        "comments": []
     }
 ]
