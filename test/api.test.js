@@ -1,8 +1,7 @@
 //Use jest's in-built supertest library for server testing
 const request = require('supertest');
-//Import server and data
+//Import server
 const server = require('../app');
-const data = require('../test-data.json');
 
 //Set up test suite
 describe('API server', () => {
@@ -38,7 +37,8 @@ describe('API server', () => {
     test('it responds to get /entries with status 200', (done) => {
         request(api)
             .get('/entries')
-            .expect(200, done);
+            .expect(200)
+            .expect([], done);
     });
 
     // test('it responds to post /entries with status 201', (done) => {
