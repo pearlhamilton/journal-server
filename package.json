@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start-dev": "start ../client/index.html & nodemon index.js",
+    "dev": "start ../client/index.html & nodemon index.js",
     "action-test": "jest",
-    "test": "jest --silent --watchAll"
+    "test": "jest --silent --watchAll",
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,8 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1"
+  },
+  "engines": {
+    "node": "14.15.5"
   }
 }
