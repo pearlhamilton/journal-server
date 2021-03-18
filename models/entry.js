@@ -1,4 +1,4 @@
-const jsonData = require('../test-data.json');
+// const jsonData = require('../test-data.json');
 const jsonHelpers = require('../json-manager');
 
 class Entry {
@@ -17,7 +17,7 @@ class Entry {
     }
 
     static findById(id) {
-        const filteredEntry = jsonData.filter((entry) => entry.id===id)[0];
+        const filteredEntry = jsonHelpers.readJSON().filter((entry) => entry.id===id)[0];
         const selectedEntry = new Entry(filteredEntry);
         if(filteredEntry) {
             console.log(`Hooray, entry ${id} exists!`);            
@@ -32,7 +32,7 @@ class Entry {
             const downcasedKeyword = keyword.toLowerCase();
             const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
             //Retrieve entries that contain search word in message
-            const matchingEntries = jsonData.filter((entry) => {
+            const matchingEntries = jsonHelpers.readJSON().filter((entry) => {
                 const messageWords = entry.message.split(" ");
                 //Convert all letters in message to lower case and remove punctuation
                 const downcasedMessageWords = messageWords.map(word => word.toLowerCase());
@@ -62,7 +62,7 @@ class Entry {
     }
 
     static create(data){
-        const newID = jsonData.length + 1;
+        const newID = jsonHelpers.readJSON().length + 1;
         const newEntry = new Entry({id: newID, ...data});
         jsonHelpers.addToJSON(newEntry);
         return newEntry;
